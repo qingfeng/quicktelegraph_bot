@@ -67,7 +67,7 @@ def content(update, context):
     content = update.message.text
     url = send_to_telegra(title, content)
     update.message.reply_text(url)
-    update.message.reply_text('Done, donate ETH to me: 0x2E223Fb6aBe2344Eebc6376e48E0Ff4169358FBC')
+    update.message.reply_text('Done, donate to me: https://www.paypal.com/paypalme/asahi001')
     logger.info("Done.")
     return ConversationHandler.END
 
