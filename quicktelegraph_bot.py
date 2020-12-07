@@ -4,6 +4,7 @@
 import socket
 import logging
 import urllib.parse
+import json
 import requests
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
@@ -40,7 +41,7 @@ def send_to_telegra(title, content):
         'access_token': access_token,
         'author_name': 'Anonymous',
         'title': title,
-        'content': '[{"tag":"p","children":["%s"]}]' % content,
+        'content': '[{"tag":"p","children":[%s]}]' % json.dumps(content, ensure_ascii=False),
         'return_content': 'false'
     }
     r = requests.post('%s/createPage' % API_URL, data=params)
